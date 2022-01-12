@@ -1,9 +1,10 @@
 import React from 'react';
+import Tuner from './components/Tuner';
 
 const App = () => {
   return (
     <div>
-      Toimii
+      <Tuner />
     </div>
   )
 }
