@@ -1,0 +1,62 @@
+.tuner {
+    width: 700px !important;
+
+    & h2 {
+        text-align: center;
+        margin-bottom: 15px;;
+    }
+    &-row-center {
+        margin: 20px;
+        justify-content: center;
+        & h4 {
+            margin-top: 20px;
+            text-align: center;
+        }
+    }
+    &-row-left {
+        justify-content: left;
+        margin-left: 15px !important;
+        margin-bottom: 5px;
+    }
+    &-button-row {
+
+        & .btn {
+            width: 100px !important;
+        }
+        &-stop {
+            margin-left: 10px !important;
+        }
+    }
+    &-clarity-range {
+        margin-top: 15px !important;
+    }
+    &-graphics {
+        height: 250px;
+        padding: 10px;
+        border: 2px solid black;
+        border-radius: 5px;
+        background-color: rgb(212, 212, 212);
+
+        &-meter {
+            fill: rgb(117, 115, 114);
+            stroke: black;
+            stroke-width: 2px;
+        }
+        &-pointer {
+            fill: rgb(204, 194, 165);
+            stroke: black;
+            transform-box: fill-box;
+            transform-origin: 10px 95px;
+            transition: 100ms linear all;
+        }
+
+        & .in-tune {
+            fill: #39ff14;
+            stroke: green
+        }
+        & .out-of-tune {
+            fill: #ff5F1F;
+            stroke: darkred
+        }
+    }
+}

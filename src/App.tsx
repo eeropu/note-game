@@ -1,11 +1,12 @@
 import React from 'react';
 import Tuner from './components/Tuner';
+import { Container } from 'react-bootstrap'
 
 const App = () => {
   return (
-    <div>
+    <Container className={'app'}>
       <Tuner />
-    </div>
+    </Container>
   )
 }
 

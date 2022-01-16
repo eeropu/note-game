@@ -1,7 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { PitchDetector } from "pitchy";
 
-const usePitchy = () => {
+let audioContext: AudioContext;
+let analyserNode: AnalyserNode;
+
+const usePitchy = (clarityTreshold: number) => {
 
     const notes = [
         ['A'],
@@ -19,12 +22,22 @@ const usePitchy = () => {
     ]
 
     const [ pitch, setPitch ] = useState(440)
-    const [ note, setNote ] = useState('')
+    const [ note, setNote ] = useState('A')
+    const [ deviation, setDeviation ] = useState(0)
     const [ clarity, setClarity ] = useState(0)
+    const [ running, setRunning ] = useState(false)
+
+    useEffect(() => {
+        if (audioContext && audioContext.state !== 'closed') {
+            stop()
+        }
+    }, [ clarityTreshold ])
 
     const start = () => {
-        const audioContext = new window.AudioContext()
-        const analyserNode = audioContext.createAnalyser()
+        setRunning(true)
+
+        audioContext = new window.AudioContext()
+        analyserNode = audioContext.createAnalyser()
 
         navigator.mediaDevices.getUserMedia({ audio: true }).then((stream) => {
             audioContext.createMediaStreamSource(stream).connect(analyserNode)
@@ -43,26 +56,45 @@ const usePitchy = () => {
             const distanceFromA4 = (12 * Math.log(frequency/440)) / Math.log(2)
             const roundedDistance = Math.round(distanceFromA4)
             let note = distanceFromA4 >= 0 ? roundedDistance % 12 : 12 + roundedDistance % 12
-            const octave = Math.ceil((roundedDistance - 9) / 12) + 5
+            const octave = Math.ceil((roundedDistance - 9) / 12) + 4
+            let deviation = distanceFromA4 % 1
 
             if (note === 12){
                 note = 0
             }
 
-            if (clarity > 0.8) {
+            if (distanceFromA4 >= 0) {
+                deviation = deviation <= 0.5 ? deviation : deviation - 1
+            } else {
+                deviation = deviation >= -0.5 ? deviation : deviation + 1
+            }
+
+            if (clarity * 100 >= clarityTreshold) {
                 setPitch(frequency)
                 setNote(`${notes[note][0]}${octave}`)
+                setDeviation(deviation)
                 setClarity(Math.round(clarity * 100))
             }
         }
-        
+
         window.setTimeout(
-            () => updatePitch(analyserNode, detector, input, sampleRate),
-            100
+            () => {
+                if (analyserNode.context.state === 'running') {
+                    updatePitch(analyserNode, detector, input, sampleRate)
+                }
+            },
+            200
         );
+        
     }
 
-    return { start, pitch, clarity, note }
+    const stop = () => {
+        audioContext.close()
+        analyserNode.disconnect()
+        setRunning(false)
+    }
+
+    return { start, stop, pitch, clarity, note, deviation, running }
 }
 
 export default usePitchy
