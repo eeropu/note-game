@@ -8,4 +8,4 @@
 | 16.1. | 8 | Better UI to tuner with svg graphics and mic sensitivity adjustment | ![tuner-version-1]
 | total | 28 | | |
 
-[tuner-version-1]: docs/images/tuner-version-1.png
+[tuner-version-1]: https://github.com/eeropu/note-game/blob/master/docs/images/tuner-version-1.png
