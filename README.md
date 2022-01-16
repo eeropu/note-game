@@ -1,4 +1,4 @@
-[hour tracking](https://github.com/eeropu/note-game/blob/master/hours.md)
+[hour tracking](https://github.com/eeropu/note-game/blob/master/docs/hours.md)
 
 # Getting Started with Create React App
 
