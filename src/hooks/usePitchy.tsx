@@ -94,7 +94,11 @@ const usePitchy = (clarityTreshold: number) => {
         setRunning(false)
     }
 
-    return { start, stop, pitch, clarity, note, deviation, running }
+    const resetNote = () => {
+        setNote('')
+    }
+
+    return { start, stop, resetNote, pitch, clarity, note, deviation, running }
 }
 
 export default usePitchy

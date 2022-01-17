@@ -8,6 +8,9 @@
 | 16.1. | 8 | Better UI to tuner with svg graphics and mic sensitivity adjustment | ![tuner-version-1]
 | 17.1. | 1 | improved tuner UI |
 | 17.1. | 3 | Added navigation bar and react router and started developing the game |
-| total | 32 |
+| 17.1. | 2 | PoC for the game | ![game-poc]
+| 18.1. | 1 | PoC for the game |
+| total | 35 |
 
 [tuner-version-1]: https://github.com/eeropu/note-game/blob/master/docs/images/tuner-version-1.png
+[game-poc]: https://github.com/eeropu/note-game/blob/master/docs/images/game-poc.png
