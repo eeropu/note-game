@@ -6,6 +6,8 @@
 | 12.1. | 6 | Set up pitchy and created simple tuner |
 | 15.1. | 6 | Researching graphics and animation libraries... started with basic svg graphics |
 | 16.1. | 8 | Better UI to tuner with svg graphics and mic sensitivity adjustment | ![tuner-version-1]
-| total | 28 | | |
+| 17.1. | 1 | improved tuner UI |
+| 17.1. | 3 | Added navigation bar and react router and started developing the game |
+| total | 32 |
 
 [tuner-version-1]: https://github.com/eeropu/note-game/blob/master/docs/images/tuner-version-1.png
