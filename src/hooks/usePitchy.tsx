@@ -56,7 +56,7 @@ const usePitchy = (clarityTreshold: number) => {
             const distanceFromA4 = (12 * Math.log(frequency/440)) / Math.log(2)
             const roundedDistance = Math.round(distanceFromA4)
             let note = distanceFromA4 >= 0 ? roundedDistance % 12 : 12 + roundedDistance % 12
-            const octave = Math.ceil((roundedDistance - 9) / 12) + 4
+            const octave = Math.ceil((roundedDistance - 2) / 12) + 4
             let deviation = distanceFromA4 % 1
 
             if (note === 12){

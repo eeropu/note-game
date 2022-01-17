@@ -37,6 +37,14 @@
         border-radius: 5px;
         background-color: rgb(212, 212, 212);
 
+        &-offline {
+            opacity: 0.25;
+            &-text {
+                fill: rgb(134, 134, 134);
+                stroke: black;
+                opacity: 1;
+            }
+        }
         &-meter {
             fill: rgb(117, 115, 114);
             stroke: black;

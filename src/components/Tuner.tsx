@@ -60,12 +60,12 @@ const Tuner: React.FC = () => {
                         />
                     </Row>
                     <Row className="tuner-row-left tuner-button-row">
-                        <Button disabled={running} className='tuner-button-row-start' onClick={start}>Start</Button>
-                        <Button disabled={!running} className='tuner-button-row-stop' onClick={stop}>Stop</Button>
+                        <Button disabled={ running } className='tuner-button-row-start' onClick={start}>Start</Button>
+                        <Button disabled={ !running } className='tuner-button-row-stop' onClick={stop}>Stop</Button>
                     </Row>
                 </Col>
                 <Col>
-                    <TunerGraphics pitch={pitch} note={note} deviation={deviation} />
+                    <TunerGraphics pitch={ pitch } note={ note } deviation={ deviation } running={ running }/>
                 </Col>
             </Row>
         </Container>
