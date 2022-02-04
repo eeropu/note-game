@@ -12,7 +12,8 @@
 | 18.1. | 1 | PoC for the game |
 | 3.2.  | 5 | Started graphics for the game |
 | 4.2.  | 3 | Started graphics for the game |
-| total | 43 |
+| 4.2.  | 2 | Game graphics: Text notes |
+| total | 45 |
 
 [tuner-version-1]: https://github.com/eeropu/note-game/blob/master/docs/images/tuner-version-1.png
 [game-poc]: https://github.com/eeropu/note-game/blob/master/docs/images/game-poc.png
