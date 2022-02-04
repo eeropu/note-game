@@ -1,0 +1,13 @@
+.game {
+    &-graphics {
+        & #circle-position-1 {
+            fill:green;
+        }
+        & #circle-position-2 {
+            fill:red;
+        }
+        & #circle-position-3 {
+            fill:blue;
+        }
+    }
+}

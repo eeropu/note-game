@@ -2,6 +2,10 @@ import React, { useEffect, useState } from 'react'
 import { Button, Container } from 'react-bootstrap'
 // import { noteFrequencies } from '../data/note-frequencies'
 import usePitchy from '../hooks/usePitchy'
+import GameGraphics from './GameGraphics'
+import GameMenu from './GameMenu'
+
+import './../styles/game.scss'
 
 const Game = () => {
 
@@ -25,11 +29,13 @@ const Game = () => {
     }, [ note ])
 
     return (
-        <Container>
+        <Container className='game'>
+            <GameMenu />
             <p>Play: { noteQueue.map((noteInQueue, i) => <span key={i}>{ noteInQueue }, </span>) }</p>
             <p>You played: { note }</p>
             { correct ? <p>Awesome!</p> : null }
             <Button onClick={ start }>Start</Button>
+            <GameGraphics/>
         </Container>
     )
 }
