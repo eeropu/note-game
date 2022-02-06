@@ -35,7 +35,7 @@ const Game = () => {
             <p>You played: { note }</p>
             { correct ? <p>Awesome!</p> : null }
             <Button onClick={ start }>Start</Button>
-            <GameGraphics/>
+            <GameGraphics noteQueue={noteQueue} />
         </Container>
     )
 }
