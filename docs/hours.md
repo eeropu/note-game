@@ -13,7 +13,8 @@
 | 3.2.  | 5 | Started graphics for the game |
 | 4.2.  | 3 | Started graphics for the game |
 | 4.2.  | 2 | Game graphics: Text notes |
-| total | 45 |
+| 5.2.  | 3 | Graphics: SVG -> Canvas |
+| total | 48 |
 
 [tuner-version-1]: https://github.com/eeropu/note-game/blob/master/docs/images/tuner-version-1.png
 [game-poc]: https://github.com/eeropu/note-game/blob/master/docs/images/game-poc.png
