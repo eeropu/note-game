@@ -15,9 +15,9 @@ const GameGraphics: React.FC<IGameGraphicsProps> = ({ noteQueue }) => {
     const lastNote = new Image()
 
     useEffect(() => {
-        currentNote.src = textNoteImages[`text_note_${ noteQueue[0] }`]
-        nextNote.src = textNoteImages[`text_note_${ noteQueue[1] }`]
-        lastNote.src = textNoteImages[`text_note_${ noteQueue[2] }`]
+        currentNote.src = textNoteImages[`text_note_${ noteQueue[0].replace("#", "s") }`]
+        nextNote.src = textNoteImages[`text_note_${ noteQueue[1].replace("#", "s") }`]
+        lastNote.src = textNoteImages[`text_note_${ noteQueue[2].replace("#", "s") }`]
         window.requestAnimationFrame(draw)
     }, )
 

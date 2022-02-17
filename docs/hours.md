@@ -14,7 +14,11 @@
 | 4.2.  | 3 | Started graphics for the game |
 | 4.2.  | 2 | Game graphics: Text notes |
 | 5.2.  | 3 | Graphics: SVG -> Canvas | ![canvas-game-base]
-| total | 48 |
+| 12.2. | 6 | Game menu |
+| 14.2. | 5 | Game menu - selecting key and position |
+| 15.2. | 8 | useNotes -hook: uses game menu selection to filter correct notes |
+| 17.2. | 7 | refactoring, bug fixing and testing |
+| total | 74 |
 
 [tuner-version-1]: https://github.com/eeropu/note-game/blob/master/docs/images/tuner-version-1.png
 [game-poc]: https://github.com/eeropu/note-game/blob/master/docs/images/game-poc.png

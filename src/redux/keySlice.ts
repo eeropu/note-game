@@ -2,12 +2,14 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export interface IKeyState {
     majorOrMinor: 'major' | 'minor',
-    key: string
+    key: string,
+    position: number
 }
 
 const initialState: IKeyState = {
     majorOrMinor: 'major',
-    key: ''
+    key: 'C',
+    position: 1
 }
 
 export const keySlice = createSlice({
@@ -19,10 +21,13 @@ export const keySlice = createSlice({
         },
         setKey: (state, action: PayloadAction<string>) => {
             state.key = action.payload
+        },
+        setPosition: (state, action: PayloadAction<number>) => {
+            state.position = action.payload
         }
     }
 })
 
-export const { setMajorOrMinor, setKey } = keySlice.actions
+export const { setMajorOrMinor, setKey, setPosition } = keySlice.actions
 
 export default keySlice.reducer

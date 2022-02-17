@@ -1,40 +1,45 @@
 import React, { useEffect, useState } from 'react'
-import { Button, Container } from 'react-bootstrap'
-// import { noteFrequencies } from '../data/note-frequencies'
+import { Container } from 'react-bootstrap'
 import usePitchy from '../hooks/usePitchy'
 import GameGraphics from './GameGraphics'
 import GameMenu from './GameMenu'
 
 import './../styles/game.scss'
+import useNotes from '../hooks/useNotes'
+import { useSelector } from 'react-redux'
+import { RootState } from '../redux/store'
 
 const Game = () => {
 
-    const getNextNote = () => {
-        return notes[Math.floor(Math.random() * notes.length)]
-    }
+    const getNextNote = () => notes[Math.floor(Math.random() * notes.length)]
 
-    const notes = ['E2', 'A2', 'D3', 'G3', 'B3', 'E4']
-    const { start, resetNote, note } = usePitchy(90)
+    const majorOrMinor = useSelector((state: RootState) => state.key.majorOrMinor)
+    const key = useSelector((state: RootState) => state.key.key)
+    const position = useSelector((state: RootState) => state.key.position)
+
+    useEffect(() => {
+        setNoteQueue(noteQueue.slice(3).concat([getNextNote(), getNextNote(), getNextNote()]))
+        if (running) {
+            stop()
+        }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [majorOrMinor, key, position])
+
+    const { notes } = useNotes({majorOrMinor, key, position})
+    const { start, resetNote, note, running, stop } = usePitchy(90)
     const [ noteQueue, setNoteQueue ] = useState([getNextNote(), getNextNote(), getNextNote()])
-    const [ correct, setCorrect ] = useState(false)
 
     useEffect(() => {
         if (noteQueue[0] === note) {
             resetNote()
-            setNoteQueue(noteQueue.slice(1).concat([getNextNote()]))
-            setCorrect(true)
-            setTimeout(() => setCorrect(false), 2000)
+            setNoteQueue(noteQueue.slice(1).concat(getNextNote()))
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [ note ])
 
     return (
         <Container className='game'>
-            <GameMenu />
-            <p>Play: { noteQueue.map((noteInQueue, i) => <span key={i}>{ noteInQueue }, </span>) }</p>
-            <p>You played: { note }</p>
-            { correct ? <p>Awesome!</p> : null }
-            <Button onClick={ start }>Start</Button>
+            <GameMenu start={ start } running={ running }/>
             <GameGraphics noteQueue={noteQueue} />
         </Container>
     )
