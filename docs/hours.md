@@ -19,7 +19,7 @@
 | 15.2. | 8 | useNotes -hook: uses game menu selection to filter correct notes |
 | 17.2. | 7 | refactoring, bug fixing and testing |
 | 18.2. | 8 | Searching and testing libraries for musical notation graphics, selected [vexflow](https://www.vexflow.com/) |
-| 19.2. | 6 | Game works with musical notation | ![musical-notation-included]{width: 200px}
+| 19.2. | 6 | Game works with musical notation | ![musical-notation-included]{width=200px}
 | total | 88 |
 
 [tuner-version-1]: https://github.com/eeropu/note-game/blob/master/docs/images/tuner-version-1.png
