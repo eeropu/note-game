@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button, Col, Form, Row } from 'react-bootstrap'
 import { keys } from './../data/keys'
 import { RootState } from '../redux/store'
 import { useSelector, useDispatch } from 'react-redux'
 import { setMajorOrMinor, setKey, setPosition } from '../redux/keySlice'
+import GameSettings from './GameSettings'
 
 interface IGameMenuProps {
     start: () => void,
@@ -11,6 +12,8 @@ interface IGameMenuProps {
 }
 
 const GameMenu: React.FC<IGameMenuProps> = ({ start, running }) => {
+
+    const [ isSettingsModalOpen, setSettingsModalOpen ] = useState(false)
 
     const majorOrMinor = useSelector((state: RootState) => state.key.majorOrMinor)
     const key = useSelector((state: RootState) => state.key.key)
@@ -62,7 +65,13 @@ const GameMenu: React.FC<IGameMenuProps> = ({ start, running }) => {
                         Start
                     </Button>
                 </Form.Group>
+                <Form.Group as={Col} controlId='settingsButton'>
+                    <Button onClick={() => setSettingsModalOpen(true)} variant={'secondary'}>
+                        Settings
+                    </Button>
+                </Form.Group>
             </Row>
+            <GameSettings isOpen={ isSettingsModalOpen } close={() => setSettingsModalOpen(false)}/>
         </Form>
     )
 }

@@ -50,6 +50,7 @@ const text_note_Gb4 = require('./../assets/text_note_Gb4.png')
 const text_note_Gs2 = require('./../assets/text_note_Gs2.png')
 const text_note_Gs3 = require('./../assets/text_note_Gs3.png')
 const text_note_Gs4 = require('./../assets/text_note_Gs4.png')
+const musical_notation_example = require('./../assets/musical_notation_example.png')
 
 
 const useImages = () => {
@@ -109,7 +110,11 @@ const useImages = () => {
         text_note_Gs4,
     }
 
-    return { textNoteImages }
+    const otherImages = {
+        musical_notation_example
+    }
+
+    return { textNoteImages, otherImages }
 }
 
 export default useImages

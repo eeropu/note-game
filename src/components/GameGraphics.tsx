@@ -28,6 +28,7 @@ interface IGameGraphicsProps {
 
 const GameGraphics: React.FC<IGameGraphicsProps> = ({ noteQueue }) => {
 
+    const displayType = useSelector((state: RootState) => state.settings.displayType)
     const majorOrMinor = useSelector((state: RootState) => state.key.majorOrMinor)
     const key = useSelector((state: RootState) => state.key.key)
 
@@ -87,8 +88,8 @@ const GameGraphics: React.FC<IGameGraphicsProps> = ({ noteQueue }) => {
 
     return (
         <>
-            <canvas ref={textNoteCanvas} width="600" height="200" />
-            <canvas ref={musicalNotationCanvas} width="600" height="200" />
+            <canvas style={{display: displayType === "text" ? 'block' : 'none'}} ref={textNoteCanvas} width="600" height="200" />
+            <canvas style={{display: displayType === "musical" ? 'block' : 'none'}} ref={musicalNotationCanvas} width="600" height="200" />
         </>
     )
 }

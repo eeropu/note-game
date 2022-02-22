@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
 import keysReducer from './keySlice'
+import settingsReducer from './settingsSlice'
 
 export const store = configureStore({
     reducer: {
-        key: keysReducer
+        key: keysReducer,
+        settings: settingsReducer
     }
 })
 
