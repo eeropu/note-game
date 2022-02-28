@@ -1,0 +1,52 @@
+@for $i from 1 through 100 {
+    .w-#{$i} {
+        width: $i * 1%;
+    }
+    .m-l-#{$i} {
+        margin-left: $i * 1px !important;
+    }
+    .m-r-#{$i} {
+        margin-right: $i * 1px !important;
+    }
+    .m-t-#{$i} {
+        margin-top: $i * 1px !important;
+    }
+    .m-b-#{$i} {
+        margin-bottom: $i * 1px !important;
+    }
+    .p-l-#{$i} {
+        padding-left: $i * 1px !important;
+    }
+    .p-r-#{$i} {
+        padding-right: $i * 1px !important;
+    }
+    .p-t-#{$i} {
+        padding-top: $i * 1px !important;
+    }
+    .p-b-#{$i} {
+        padding-bottom: $i * 1px !important;
+    }
+}
+
+td {
+    vertical-align: middle;
+}
+
+ul {
+    margin-bottom: 0px;
+}
+
+.app {
+    border-left: 2px solid darkgray;
+    border-right: 2px solid darkgray;
+    background-color: white;
+    min-height: 100vh !important;
+}
+
+.table {
+    width: fit-content !important;
+}
+
+body {
+    background: url(../assets/background_pattern.jpg);
+}

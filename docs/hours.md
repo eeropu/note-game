@@ -22,7 +22,11 @@
 | 19.2. | 6 | Game works with musical notation | ![musical-notation-included]
 | 21.2. | 6 | Game settings |
 | 22.2. | 5 | Game settings |
-| total | 99 |
+| 24.2. | 3 | Planning and sketching front page content |
+| 24.2. | 3 | Front page |
+| 27.2. | 6 | Front page |
+| 28.2. | 5 | Style and structure improvements on front page |
+| total | 116 |
 
 [tuner-version-1]: https://github.com/eeropu/note-game/blob/master/docs/images/tuner-version-1.png
 [game-poc]: https://github.com/eeropu/note-game/blob/master/docs/images/game-poc.png

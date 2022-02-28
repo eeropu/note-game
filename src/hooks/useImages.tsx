@@ -51,6 +51,7 @@ const text_note_Gs2 = require('./../assets/text_note_Gs2.png')
 const text_note_Gs3 = require('./../assets/text_note_Gs3.png')
 const text_note_Gs4 = require('./../assets/text_note_Gs4.png')
 const musical_notation_example = require('./../assets/musical_notation_example.png')
+const musical_notation_included = require('./../assets/musical_notation_included.png')
 
 
 const useImages = () => {
@@ -111,7 +112,8 @@ const useImages = () => {
     }
 
     const otherImages = {
-        musical_notation_example
+        musical_notation_example,
+        musical_notation_included
     }
 
     return { textNoteImages, otherImages }

@@ -3,10 +3,13 @@ import Tuner from './components/Tuner';
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap'
 import { Route, Routes } from 'react-router-dom';
 import Game from './components/Game';
+import FrontPage from './components/FrontPage';
+
+import './styles/app.scss'
 
 const App = () => {
   return (
-    <Container className={'app'}>
+    <Container className={'app p-b-100'}>
       <Navbar>
         <Container>
           <Navbar.Brand href="/">Note Game</Navbar.Brand>
@@ -28,6 +31,7 @@ const App = () => {
       <Routes>
         <Route path='/game' element={ <Game /> } />
         <Route path='/tuner' element={ <Tuner /> } />
+        <Route path='/' element={ <FrontPage /> } />
       </Routes>
     </Container>
   )

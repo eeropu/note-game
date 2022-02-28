@@ -4,9 +4,13 @@ import { BsInfoCircle } from 'react-icons/bs'
 
 interface ITooltipProps {
     content: string
+    image?: {
+        src: string,
+        alt: string
+    }
 }
 
-const TooltipHelper: React.FC<ITooltipProps> = ({ content }) => (
+const TooltipHelper: React.FC<ITooltipProps> = ({ content, image }) => (
     <OverlayTrigger
         placement={'right'}
         overlay={
@@ -15,7 +19,9 @@ const TooltipHelper: React.FC<ITooltipProps> = ({ content }) => (
             </Tooltip>
         }
     >
-        <span><BsInfoCircle/></span>
+        { image ? <img src={image.src} alt={image.alt} width={"100%"}/> 
+                : <span><BsInfoCircle/></span>
+        }
     </OverlayTrigger>
 )
 

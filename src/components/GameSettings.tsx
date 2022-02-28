@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux"
 import useImages from "../hooks/useImages"
 import { RootState } from "../redux/store"
 import { setDisplayType } from './../redux/settingsSlice'
-import TooltipHelper from "./Tooltip"
+import TooltipHelper from "./TooltipHelper"
 import Tuner from "./Tuner"
 
 interface IGameSettingsProps {
