@@ -26,7 +26,10 @@
 | 24.2. | 3 | Front page |
 | 27.2. | 6 | Front page |
 | 28.2. | 5 | Style and structure improvements on front page |
-| total | 116 |
+| 1.3. | 2 | Started working on backend |
+| 1.3. | 3 | Trying to get express working with react router |
+| 1.3. | 1 | Log in - backend |
+| total | 122 |
 
 [tuner-version-1]: https://github.com/eeropu/note-game/blob/master/docs/images/tuner-version-1.png
 [game-poc]: https://github.com/eeropu/note-game/blob/master/docs/images/game-poc.png
