@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Tuner from './components/Tuner';
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap'
 import { Route, Routes } from 'react-router-dom';
@@ -6,8 +6,12 @@ import Game from './components/Game';
 import FrontPage from './components/FrontPage';
 
 import './styles/app.scss'
+import Login from './components/Login';
 
 const App = () => {
+
+  const [ isLoginModalOpen, setIsLoginModalOpen ] = useState(false)
+
   return (
     <Container className={'app p-b-100'}>
       <Navbar>
@@ -25,14 +29,18 @@ const App = () => {
                 <NavDropdown.Item href="#action/3.4">- 3 -</NavDropdown.Item>
               </NavDropdown>
             </Nav>
+            <Nav>
+              <Nav.Link href="#" onClick={() => setIsLoginModalOpen(true)}>Log in</Nav.Link>
+            </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
       <Routes>
-        <Route path='/game' element={ <Game /> } />
-        <Route path='/tuner' element={ <Tuner /> } />
-        <Route path='/' element={ <FrontPage /> } />
+        <Route path='/game' element={<Game />} />
+        <Route path='/tuner' element={<Tuner />} />
+        <Route path='/' element={<FrontPage />} />
       </Routes>
+      <Login isOpen={isLoginModalOpen} close={() => setIsLoginModalOpen(false)}/>
     </Container>
   )
 }

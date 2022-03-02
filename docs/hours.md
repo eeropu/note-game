@@ -29,7 +29,9 @@
 | 1.3. | 2 | Started working on backend |
 | 1.3. | 3 | Trying to get express working with react router |
 | 1.3. | 1 | Log in - backend |
-| total | 122 |
+| 2.3. | 6 | Log in - UI |
+| 2.3. | 2 | DB planning and set up |
+| total | 130 |
 
 [tuner-version-1]: https://github.com/eeropu/note-game/blob/master/docs/images/tuner-version-1.png
 [game-poc]: https://github.com/eeropu/note-game/blob/master/docs/images/game-poc.png
