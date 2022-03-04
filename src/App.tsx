@@ -7,10 +7,23 @@ import FrontPage from './components/FrontPage';
 
 import './styles/app.scss'
 import Login from './components/Login';
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState } from './redux/store';
+import { BsFillPersonFill } from 'react-icons/bs';
+import { setCredentials } from './redux/credentialSlice';
 
 const App = () => {
 
-  const [ isLoginModalOpen, setIsLoginModalOpen ] = useState(false)
+  const username = useSelector((state: RootState) => state.credentials.username)
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false)
+
+  const dispatch = useDispatch()
+
+  const logOut = () => {
+    window.localStorage.removeItem("note-game-token")
+    window.localStorage.removeItem("note-game-username")
+    dispatch(setCredentials({ token: "", username: "" }))
+  }
 
   return (
     <Container className={'app p-b-100'}>
@@ -30,7 +43,16 @@ const App = () => {
               </NavDropdown>
             </Nav>
             <Nav>
-              <Nav.Link href="#" onClick={() => setIsLoginModalOpen(true)}>Log in</Nav.Link>
+              {!username ?
+                <Nav.Link href="#" onClick={() => setIsLoginModalOpen(true)}>Log in</Nav.Link> :
+                <NavDropdown title={<div id="userNavItem"><BsFillPersonFill/> {username}</div>} id="basic-nav-dropdown">
+                  <NavDropdown.Item href="#action/3.1">Placeholder options</NavDropdown.Item>
+                  <NavDropdown.Item href="#action/3.2">- 1 -</NavDropdown.Item>
+                  <NavDropdown.Item href="#action/3.3">- 2 -</NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item href="#" onClick={() => logOut()}>Log out</NavDropdown.Item>
+                </NavDropdown>
+              }
             </Nav>
           </Navbar.Collapse>
         </Container>
@@ -40,7 +62,7 @@ const App = () => {
         <Route path='/tuner' element={<Tuner />} />
         <Route path='/' element={<FrontPage />} />
       </Routes>
-      <Login isOpen={isLoginModalOpen} close={() => setIsLoginModalOpen(false)}/>
+      <Login isOpen={isLoginModalOpen} close={() => setIsLoginModalOpen(false)} />
     </Container>
   )
 }

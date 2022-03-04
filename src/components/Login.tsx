@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Alert, Button, Form, Modal } from "react-bootstrap";
 import useService from "../hooks/useService";
+import { useDispatch } from 'react-redux'
+import { setCredentials } from "../redux/credentialSlice";
 
 interface ILoginProps {
     isOpen: boolean,
@@ -17,6 +19,8 @@ const Login: React.FC<ILoginProps> = ({ isOpen, close }) => {
     const [repeatPassword, setRepeatPassword] = useState("")
     const [alert, setAlert] = useState("")
 
+    const dispatch = useDispatch()
+
     const handleSubmit = () => {
         if (newUser) {
             if (password !== repeatPassword) {
@@ -24,6 +28,11 @@ const Login: React.FC<ILoginProps> = ({ isOpen, close }) => {
             } else {
                 createNewUser({ username, password }).then(response => {
                     console.log(response)
+                    dispatch(setCredentials(response))
+                    setUsername("")
+                    setPassword("")
+                    setRepeatPassword("")
+                    close()
                 }).catch(error => {
                     showAlert(error.message)
                 })
@@ -31,6 +40,11 @@ const Login: React.FC<ILoginProps> = ({ isOpen, close }) => {
         } else {
             login({ username, password }).then(response => {
                 console.log(response)
+                dispatch(setCredentials(response))
+                setUsername("")
+                setPassword("")
+                setRepeatPassword("")
+                close()
             }).catch(error => {
                 showAlert(error.message)
             })
@@ -47,11 +61,11 @@ const Login: React.FC<ILoginProps> = ({ isOpen, close }) => {
     return (
         <Modal show={isOpen} onHide={close}>
             <Modal.Header closeButton>
-                <Modal.Title>{ newUser ? "Create new user" : "Log in"}</Modal.Title>
+                <Modal.Title>{newUser ? "Create new user" : "Log in"}</Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <Alert variant="danger" show={alert !== ""} onClose={() => setAlert("")} dismissible>
-                    { alert }
+                    {alert}
                 </Alert>
                 <Form.Group className="mb-3">
                     <Form.Label>Username</Form.Label>
@@ -71,7 +85,7 @@ const Login: React.FC<ILoginProps> = ({ isOpen, close }) => {
                         onChange={(e) => setPassword(e.target.value)}
                     />
                 </Form.Group>
-                { newUser &&
+                {newUser &&
                     <Form.Group className="mb-3">
                         <Form.Label>Repeat password</Form.Label>
                         <Form.Control
@@ -82,9 +96,9 @@ const Login: React.FC<ILoginProps> = ({ isOpen, close }) => {
                         />
                     </Form.Group>
                 }
-                { newUser ?
+                {newUser ?
                     <Button variant='link' onClick={() => setNewUser(false)}>Back</Button> :
-                    <Button variant='link' onClick={() => setNewUser(true)}>New user</Button> 
+                    <Button variant='link' onClick={() => setNewUser(true)}>New user</Button>
                 }
             </Modal.Body>
             <Modal.Footer>

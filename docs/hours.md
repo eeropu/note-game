@@ -31,7 +31,9 @@
 | 1.3. | 1 | Log in - backend |
 | 2.3. | 6 | Log in - UI |
 | 2.3. | 2 | DB planning and set up |
-| total | 130 |
+| 3.3. | 7 | connecting server and db, validating user operations |
+| 4.3. | 7 | refactoring and cleaning server code + started using jwt, testing |
+| total | 144 |
 
 [tuner-version-1]: https://github.com/eeropu/note-game/blob/master/docs/images/tuner-version-1.png
 [game-poc]: https://github.com/eeropu/note-game/blob/master/docs/images/game-poc.png
