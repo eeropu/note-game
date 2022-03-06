@@ -6,7 +6,7 @@ export interface ISettingsState {
 }
 
 const initialState: ISettingsState = {
-    clarityThreshold: 95,
+    clarityThreshold: 90,
     displayType: "text"
 }
 

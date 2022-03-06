@@ -5,10 +5,16 @@ import { Range } from 'react-range'
 import TunerGraphics from './TunerGraphics'
 
 import './../styles/tuner.scss'
+import { useDispatch, useSelector } from "react-redux";
+import { setClarityThreshold } from "../redux/settingsSlice";
+import { RootState } from "../redux/store";
 
 const Tuner: React.FC = () => {
-    const [ clarityThreshold, setClarityThreshold ] = useState([90])
-    const { start, stop, pitch, clarity, note, deviation, running } = usePitchy(clarityThreshold[0])
+
+    const clarityThreshold = useSelector((state: RootState) => state.settings.clarityThreshold)
+    const dispatch = useDispatch()
+
+    const { start, stop, pitch, clarity, note, deviation, running } = usePitchy(clarityThreshold)
 
     return (
         <Container className={'tuner'}>
@@ -31,8 +37,8 @@ const Tuner: React.FC = () => {
                             step={1}
                             min={0}
                             max={100}
-                            values={ clarityThreshold }
-                            onChange={(values) => setClarityThreshold(values)}
+                            values={ [clarityThreshold] }
+                            onChange={(values) => dispatch(setClarityThreshold(values[0]))}
                             renderTrack={({ props, children }) => (
                                 <div
                                     {...props}

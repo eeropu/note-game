@@ -1,4 +1,4 @@
-@for $i from 1 through 100 {
+@for $i from 0 through 100 {
     .w-#{$i} {
         width: $i * 1%;
     }
@@ -54,4 +54,14 @@ body {
 #userNavItem {
     display: inline-block;
     text-decoration: underline;
+}
+
+.settings-table {
+    text-align: center;
+    & tbody tr td {
+        text-align: -webkit-center;
+        & .form-check{
+            width: fit-content;
+        }
+    }
 }

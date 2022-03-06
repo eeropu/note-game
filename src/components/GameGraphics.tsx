@@ -89,7 +89,7 @@ const GameGraphics: React.FC<IGameGraphicsProps> = ({ noteQueue }) => {
     return (
         <>
             <canvas style={{display: displayType === "text" ? 'block' : 'none'}} ref={textNoteCanvas} width="600" height="200" />
-            <canvas style={{display: displayType === "musical" ? 'block' : 'none'}} ref={musicalNotationCanvas} width="600" height="200" />
+            <canvas style={{display: displayType !== "text" ? 'block' : 'none'}} ref={musicalNotationCanvas} width="600" height="200" />
         </>
     )
 }

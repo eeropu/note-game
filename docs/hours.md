@@ -33,7 +33,10 @@
 | 2.3. | 2 | DB planning and set up |
 | 3.3. | 7 | connecting server and db, validating user operations |
 | 4.3. | 7 | refactoring and cleaning server code + started using jwt, testing |
-| total | 144 |
+| 5.3. | 2 | Skill testing mode planning |
+| 5.3. | 2 | Refactoring game settings to enable skill testing mode |
+| 6.3. | 2 | Refactoring game settings to enable skill testing mode + styles |
+| total | 150 |
 
 [tuner-version-1]: https://github.com/eeropu/note-game/blob/master/docs/images/tuner-version-1.png
 [game-poc]: https://github.com/eeropu/note-game/blob/master/docs/images/game-poc.png
