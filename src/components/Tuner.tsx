@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import usePitchy from "../hooks/usePitchy";
 import { Container, Row, Button, Col } from 'react-bootstrap';
 import { Range } from 'react-range'

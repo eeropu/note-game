@@ -8,10 +8,11 @@ import GameSettings from './GameSettings'
 
 interface IGameMenuProps {
     start: () => void,
+    stop: () => void,
     running: boolean
 }
 
-const GameMenu: React.FC<IGameMenuProps> = ({ start, running }) => {
+const GameMenu: React.FC<IGameMenuProps> = ({ start, stop, running }) => {
 
     const [ isSettingsModalOpen, setSettingsModalOpen ] = useState(false)
 
@@ -61,12 +62,12 @@ const GameMenu: React.FC<IGameMenuProps> = ({ start, running }) => {
                     </Form.Select>
                 </Form.Group>
                 <Form.Group as={Col} controlId='startButton'>
-                    <Button onClick={ start } disabled={ running }>
-                        Start
-                    </Button>
+                    { running ? <Button onClick={ stop }>Stop</Button>
+                              : <Button onClick={ start }>Start</Button>
+                    }
                 </Form.Group>
                 <Form.Group as={Col} controlId='settingsButton'>
-                    <Button onClick={() => setSettingsModalOpen(true)} variant={'secondary'}>
+                    <Button onClick={() => setSettingsModalOpen(true)} variant={'secondary'} disabled={running}>
                         Settings
                     </Button>
                 </Form.Group>
