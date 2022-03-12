@@ -35,7 +35,7 @@ const Game = () => {
     const [testNotesLeft, setTestNotesLeft] = useState(20)
     const [ startTime, setStartTime ] = useState(0)
     const [ finishTime, setfinishTime ] = useState(0)
-    const [ isTestResultModalOpen, setIsTestResultModalOpen ] = useState(true)
+    const [ isTestResultModalOpen, setIsTestResultModalOpen ] = useState(false)
 
     useEffect(() => {
         if (noteQueue[0] === note) {
@@ -44,6 +44,9 @@ const Game = () => {
             if (mode === "test") {
                 if (testNotesLeft === 1) {
                     setfinishTime(Date.now())
+                    setIsTestResultModalOpen(true)
+                    setTimer(0)
+                    stop()
                 }
                 setTestNotesLeft(testNotesLeft - 1)
             }
@@ -71,14 +74,12 @@ const Game = () => {
             stop()
         }
         setTimer(0)
-        setTestNotesLeft(20)
+        setTestNotesLeft(5)
         if (mode === 'test') {
             setStartTime(Date.now())
         }
         start()
     }
-
-    console.log(startTime)
 
     return (
         <Container className='game'>
@@ -93,7 +94,7 @@ const Game = () => {
                             Time:
                         </Row>
                         <Row>
-                            {`${Math.floor(timer / 60)}:${timer % 60 < 10 ? '0' + timer % 60 : timer % 60}`}
+                            {timer === 0 ? "-:--" :`${Math.floor(timer / 60)}:${timer % 60 < 10 ? '0' + timer % 60 : timer % 60}`}
                         </Row>
                     </Col>
                     <Col>

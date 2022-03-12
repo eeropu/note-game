@@ -36,7 +36,10 @@
 | 5.3. | 2 | Skill testing mode planning |
 | 5.3. | 2 | Refactoring game settings to enable skill testing mode |
 | 6.3. | 2 | Refactoring game settings to enable skill testing mode + styles |
-| total | 150 |
+| 9.3. | 7 | Skill test mode - timer, notes left count, results modal |
+| 10.3. | 4 | Skill test mode - saving and fetching records - front end and back end |
+| 12.3. | 3 | Skill test mode - saving and fetching records - testing and bug fixes |
+| total | 164 |
 
 [tuner-version-1]: https://github.com/eeropu/note-game/blob/master/docs/images/tuner-version-1.png
 [game-poc]: https://github.com/eeropu/note-game/blob/master/docs/images/game-poc.png
