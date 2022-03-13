@@ -1,8 +1,8 @@
 import { login, createNewUser } from './../services/loginService'
-import { addResult, getResult } from '../services/resultService'
+import { addResult, getResult, getAllResults } from '../services/resultService'
 
 const useService = () => {
-    return { login, createNewUser, addResult, getResult }
+    return { login, createNewUser, addResult, getResult, getAllResults }
 }
 
 export default useService

@@ -27,7 +27,6 @@ const Login: React.FC<ILoginProps> = ({ isOpen, close }) => {
                 showAlert("Given passwords do not match!")
             } else {
                 createNewUser({ username, password }).then(response => {
-                    console.log(response)
                     dispatch(setCredentials(response))
                     setUsername("")
                     setPassword("")
@@ -39,7 +38,6 @@ const Login: React.FC<ILoginProps> = ({ isOpen, close }) => {
             }
         } else {
             login({ username, password }).then(response => {
-                console.log(response)
                 dispatch(setCredentials(response))
                 setUsername("")
                 setPassword("")

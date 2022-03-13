@@ -15,13 +15,14 @@ const TestResultModal: React.FC<ITestResultModalProps> = ({ startTime, finishTim
 
     const key = useSelector((state: RootState) => state.key.key)
     const majorOrMinor = useSelector((state: RootState) => state.key.majorOrMinor)
+    const position = useSelector((state: RootState) => state.key.position)
     const token = useSelector((state: RootState) => state.credentials.token)
     const [ previousBest, setPreviousBest ] = useState<any>(undefined)
 
-    const { addResult, getResult } = useService()
+    const { addResult, getResult } = useService()
 
     useEffect(() => {
-        getResult(`${key}-${majorOrMinor}`, token).then(response => {
+        getResult(`${key}-${majorOrMinor}`, position, token).then(response => {
             setPreviousBest(response)
         }).catch(error => {
             setPreviousBest(null)
@@ -35,10 +36,11 @@ const TestResultModal: React.FC<ITestResultModalProps> = ({ startTime, finishTim
     const save = () => {
         addResult({
             key: `${key}-${majorOrMinor}`,
+            position,
             time: (finishTime - startTime),
             date: new Date()
         }, token).then(response => {
-            console.log(response)
+            close()
         }).catch(error => {
             alert(error)
         })
@@ -61,7 +63,6 @@ const TestResultModal: React.FC<ITestResultModalProps> = ({ startTime, finishTim
     const formatTime = (time: number) => {
         const mins = Math.floor((time / 1000) / 60)
         const minsString = mins ? `${mins} min${mins > 1 ? "s" : ""}` : ""
-        console.log((Math.floor(time * 1000) / 1000) % 60)
         const secondsString = `${Math.floor(((time / 1000) % 60) * 1000) / 1000} seconds`
         return  `${minsString} ${secondsString}`
     }

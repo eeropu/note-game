@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Tuner from './components/Tuner';
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap'
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import Game from './components/Game';
 import FrontPage from './components/FrontPage';
 
@@ -11,6 +11,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from './redux/store';
 import { BsFillPersonFill } from 'react-icons/bs';
 import { setCredentials } from './redux/credentialSlice';
+import MyProgress from './components/MyProgress';
 
 const App = () => {
 
@@ -40,9 +41,7 @@ const App = () => {
               {!username ?
                 <Nav.Link href="#" onClick={() => setIsLoginModalOpen(true)}>Log in</Nav.Link> :
                 <NavDropdown title={<div id="userNavItem"><BsFillPersonFill/> {username}</div>} id="basic-nav-dropdown">
-                  <NavDropdown.Item href="#action/3.1">Placeholder options</NavDropdown.Item>
-                  <NavDropdown.Item href="#action/3.2">- 1 -</NavDropdown.Item>
-                  <NavDropdown.Item href="#action/3.3">- 2 -</NavDropdown.Item>
+                  <NavDropdown.Item href="/my-progress">My progress</NavDropdown.Item>
                   <NavDropdown.Divider />
                   <NavDropdown.Item href="#" onClick={() => logOut()}>Log out</NavDropdown.Item>
                 </NavDropdown>
@@ -54,7 +53,9 @@ const App = () => {
       <Routes>
         <Route path='/game' element={<Game />} />
         <Route path='/tuner' element={<Tuner />} />
+        <Route path="/my-progress" element={<MyProgress />} />
         <Route path='/' element={<FrontPage />} />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
       <Login isOpen={isLoginModalOpen} close={() => setIsLoginModalOpen(false)} />
     </Container>
