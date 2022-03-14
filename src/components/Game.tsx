@@ -74,7 +74,7 @@ const Game = () => {
             stop()
         }
         setTimer(0)
-        setTestNotesLeft(5)
+        setTestNotesLeft(20)
         if (mode === 'test') {
             setStartTime(Date.now())
         }
@@ -86,9 +86,8 @@ const Game = () => {
             <Row>
                 <GameMenu start={startGame} stop={stop} running={running} />
             </Row>
-            {note}
             {mode === "test" &&
-                <Row>
+                <Row className="skill-test">
                     <Col>
                         <Row>
                             Time:

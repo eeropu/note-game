@@ -52,8 +52,8 @@ const FrontPage: React.FC = () => {
                     <thead>
                         <tr>
                             <th>Browser</th>
-                            <th colSpan={2}>First time starting</th>
-                            <th colSpan={2}>If permission has been denied</th>
+                            <th>First time starting</th>
+                            <th>If permission has been denied</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -67,15 +67,13 @@ const FrontPage: React.FC = () => {
                                     }}
                                 />
                             </td>
-                            <td className='w-27'>Click allow when asked for permission to use microphone</td>
-                            <td className='w-20'>* Image for clarification *</td>
+                            <td className='w-27' rowSpan={2}>Click allow when asked for permission to use microphone</td>
                             <td className='w-25'>
                                 <ul>
                                     <li>Click the <BsInfoCircle/> icon left of the URL</li>
                                     <li>Toggle microphone permission to allowed</li>
                                 </ul>
                             </td>
-                            <td className='w-20'>* Images for clarification *</td>
                         </tr>
                         <tr>
                             <td className='w-8'>
@@ -87,8 +85,6 @@ const FrontPage: React.FC = () => {
                                     }}
                                 />
                             </td>
-                            <td className='w-27'>Click allow when asked for permission to use microphone</td>
-                            <td className='w-20'>* Image for clarification *</td>
                             <td className='w-25'>
                                 <ul>
                                     <li>Click the <BsFillMicMuteFill/> icon left of the URL</li>
@@ -96,7 +92,6 @@ const FrontPage: React.FC = () => {
                                     <li>Refresh the page and allow permission when requested</li>
                                 </ul>
                             </td>
-                            <td className='w-20'>* Images for clarification *</td>
                         </tr>
                     </tbody>
                 </Table>

@@ -48,11 +48,11 @@ const MyProgress = () => {
                     {[...Array(majorKeys.length).keys()].map(rowIndex => {
                         return (
                             <tr key={rowIndex}>
-                                <th>
-                                    <p>
+                                <th className='result-table-key'>
+                                    <p className='result-table-key-major'>
                                         {majorKeys[rowIndex]} Major
                                     </p>
-                                    <span>
+                                    <span className='result-table-key-minor'>
                                         ({minorKeys[rowIndex]} Minor)
                                     </span>
                                 </th>
@@ -95,20 +95,20 @@ const ResultTableCell: React.FC<IResultTableCellProps> = ({ major, minor }) => {
     }
 
     if (major === "-" && minor === "-") {
-        return <TooltipHelper content="No saved results... yet" children={<td>-</td>} />
+        return <TooltipHelper content="No saved results... yet" children={<td className={"result-table-cell"}>-</td>} />
     } else if (minor === "-") {
         // @ts-ignore
-        return <TooltipHelper content={new Date(major.date).toLocaleDateString()} children={<td>{formatTime(major.time)}</td>} />
+        return <TooltipHelper content={new Date(major.date).toLocaleDateString()} children={<td className={"result-table-cell"}>{formatTime(major.time)}</td>} />
     } else if (major === "-") {
         // @ts-ignore
-        return <TooltipHelper content={new Date(minor.date).toLocaleDateString()} children={<td>{formatTime(minor.time)}</td>} />
+        return <TooltipHelper content={new Date(minor.date).toLocaleDateString()} children={<td className={"result-table-cell"}>{formatTime(minor.time)}</td>} />
     } else {
         const majorAsObject = major as {time: number, date: Date}
         const minorAsObject = minor as {time: number, date: Date}
         if (majorAsObject.time < minorAsObject.time) {
-            return <TooltipHelper content={new Date(majorAsObject.date).toLocaleDateString()} children={<td>{formatTime(majorAsObject.time)}</td>} />
+            return <TooltipHelper content={new Date(majorAsObject.date).toLocaleDateString()} children={<td className={"result-table-cell"}>{formatTime(majorAsObject.time)}</td>} />
         } else {
-            return <TooltipHelper content={new Date(minorAsObject.date).toLocaleDateString()} children={<td>{formatTime(minorAsObject.time)}</td>} />
+            return <TooltipHelper content={new Date(minorAsObject.date).toLocaleDateString()} children={<td className={"result-table-cell"}>{formatTime(minorAsObject.time)}</td>} />
         }
     }
 }

@@ -71,3 +71,18 @@ body {
     text-align: center;
     font-size: 20px;
 }
+
+.result-table-key {
+    text-align: center;
+    &-major {
+        margin-bottom: 0px;
+    }
+    &-minor {
+        font-weight: normal;
+        font-size: 14px;
+    }
+}
+
+.result-table-cell {
+    text-align: center;
+}

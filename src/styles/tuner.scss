@@ -1,5 +1,8 @@
 .tuner {
     width: 700px !important;
+    border: 2px solid darkgray;
+    padding: 10px 15px 15px 15px !important;
+    border-radius: 20px;
 
     & h2 {
         text-align: center;

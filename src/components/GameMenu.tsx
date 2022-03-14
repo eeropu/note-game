@@ -22,11 +22,12 @@ const GameMenu: React.FC<IGameMenuProps> = ({ start, stop, running }) => {
     const dispatch = useDispatch()
 
     return (
-        <Form>
+        <Form className="game-menu">
             <Row>
-                <Form.Group as={Col} controlId='gameMenuMajorOrMinor'>
+                <Form.Group className="force-width-column" as={Col} controlId='gameMenuMajorOrMinor'>
                     <Form.Label>Major / Minor</Form.Label>
                     <Form.Select
+                        className='game-menu-select'
                         value={majorOrMinor} 
                         onChange={(e) => { 
                             dispatch(setMajorOrMinor(e.target.value as 'major' | 'minor'))
@@ -36,9 +37,9 @@ const GameMenu: React.FC<IGameMenuProps> = ({ start, stop, running }) => {
                             <option value='minor'>Minor</option>
                     </Form.Select>
                 </Form.Group>
-                <Form.Group as={Col} controlId='gameMenuKey'>
+                <Form.Group className="force-width-column" as={Col} controlId='gameMenuKey'>
                     <Form.Label>Key</Form.Label>
-                    <Form.Select value={key} onChange={(e) => dispatch(setKey(e.target.value))}>
+                    <Form.Select className='game-menu-select' value={key} onChange={(e) => dispatch(setKey(e.target.value))}>
                         { Object.keys(keys[majorOrMinor]).map(key => (
                             <option key={ key } value={ key }>
                                 { /* @ts-ignore */ }
@@ -47,9 +48,9 @@ const GameMenu: React.FC<IGameMenuProps> = ({ start, stop, running }) => {
                         ))}
                     </Form.Select>
                 </Form.Group>
-                <Form.Group as={Col} controlId='gameMenuPosition'>
+                <Form.Group className="force-width-column" as={Col} controlId='gameMenuPosition'>
                     <Form.Label>Position</Form.Label>
-                    <Form.Select value={position} onChange={(e) => dispatch(setPosition(Number(e.target.value)))}>
+                    <Form.Select className='game-menu-select' value={position} onChange={(e) => dispatch(setPosition(Number(e.target.value)))}>
                         { [...Array(12).keys()].map(i => (
                             <option key={i} value={i + 1}>
                                 {i + 1}
@@ -61,12 +62,12 @@ const GameMenu: React.FC<IGameMenuProps> = ({ start, stop, running }) => {
                         ))}
                     </Form.Select>
                 </Form.Group>
-                <Form.Group as={Col} controlId='startButton'>
+                <Form.Group className='game-menu-button-container' as={Col} controlId='startButton'>
                     { running ? <Button onClick={ stop }>Stop</Button>
                               : <Button onClick={ start }>Start</Button>
                     }
                 </Form.Group>
-                <Form.Group as={Col} controlId='settingsButton'>
+                <Form.Group className='game-menu-button-container' as={Col} controlId='settingsButton'>
                     <Button onClick={() => setSettingsModalOpen(true)} variant={'secondary'} disabled={running}>
                         Settings
                     </Button>
