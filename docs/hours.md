@@ -41,7 +41,8 @@
 | 12.3. | 3 | Skill test mode - saving and fetching records - testing and bug fixes |
 | 12.3. | 3 | My progress view - back end for fetching all user's saved results |
 | 13.3. | 5 | My progress view - front end |
-| total | 172 |
+| 14.3. | 5 | Style improvements, testing, Readme update, deploy to heroku | 
+| total | 177 |
 
 [tuner-version-1]: https://github.com/eeropu/note-game/blob/master/docs/images/tuner-version-1.png
 [game-poc]: https://github.com/eeropu/note-game/blob/master/docs/images/game-poc.png
