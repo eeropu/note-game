@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { keys } from './../data/keys'
-const baseURL = "http://localhost:3001/api"
+const baseURL = "/api"
 
 interface IResult {
     key: string,

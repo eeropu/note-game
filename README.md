@@ -1,8 +1,9 @@
 [hour tracking](https://github.com/eeropu/note-game/blob/master/docs/hours.md)
 
-# Getting Started with Create React App
+# Note game
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a game for guitarists to practice reading musical notation and improve their knowledge of where each note is on the fretboard.
+More detailed info is found on the frontpage
 
 ## Available Scripts
 
