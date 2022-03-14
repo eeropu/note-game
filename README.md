@@ -1,6 +1,8 @@
 [Website can be accessed here](https://gentle-brushlands-37339.herokuapp.com/)  
 
-[hour tracking](https://github.com/eeropu/note-game/blob/master/docs/hours.md)
+[hour tracking](https://github.com/eeropu/note-game/blob/master/docs/hours.md)  
+
+[back end code here](https://github.com/eeropu/note-game-backend)
 
 # Note game
 
